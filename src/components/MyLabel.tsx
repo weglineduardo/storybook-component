@@ -34,7 +34,7 @@ export const MyLabel = ({
   allCaps = true,
   color = "primary",
   fontColor = "",
-  fontBackground = "",
+  fontBackground = "yellow",
 }: MyLabelProps) => {
   return (
     <span
