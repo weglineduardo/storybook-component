@@ -1,0 +1,14 @@
+usuario de base de datos mongodb
+
+usuarioCafe
+74Np8GvH7XqezOMQ
+
+cadena de conexion  ok
+
+MONGODB_CNN=mongodb+srv://usuarioCafe:74Np8GvH7XqezOMQ@clustercafe.gijdn.mongodb.net/usuarioCafe
+
+
+instalar mongodb compast
+
+
+doc de de la libreria mongoose https://mongoosejs.com/

@@ -1,0 +1,264 @@
+express es la libreria mas popular para crerar webserver bajo node
+
+
+hosting para publicar proyectos hechos en node
+
+https://dashboard.heroku.com/terms-of-service
+https://try.digitalocean.com/developerbrand/
+https://cloud.google.com/
+https://aws.amazon.com/es/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all
+
+https://azure.microsoft.com/en-ca/free/search/
+
+https://firebase.google.com/docs/hosting?hl=es
+
+en la consola heroku --version
+nos logueamos con
+heroku login
+nos conectamos con heroku con
+heroku git:remote -a webservernodesynchron
+comprobamos si tenemos un commit con
+git log
+sino tenemos lo hacemos con 
+git add .
+git commit -am nombredelcommit
+verificamos que tenemos la rama a subir con
+git branch
+subimos el commit con 
+git push herou master
+
+creado quedo en https://webservernodesynchron.herokuapp.com/
+
+en la web de herou tenemos documentacion para la instalacion
+https://dashboard.heroku.com/apps/webservernodesynchron/deploy/heroku-git
+
+Install the Heroku CLI
+Download and install the Heroku CLI.
+
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+
+$ heroku login
+Clone the repository
+Use Git to clone webservernodesynchron's source code to your local machine.
+
+$ heroku git:clone -a webservernodesynchron 
+$ cd webservernodesynchron
+Deploy your changes
+Make some changes to the code you just cloned and deploy them to Heroku using Git.
+
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
+You can now change your mai
+
+
+para abrir un poryecto reac compilado
+instamos 
+
+cd a carpeta donde tenemos el proyecto reac
+C:\synchro\cursos\udemy\node js\seccion7webserver\leccion 95 depliegue de aplicaciones angular\Angular-React-Prod-Builds\react
+
+lo lazamos con 
+>http-server -o
+
+agregamos cambios al git con
+git add .
+hacemos el commit local con 
+git commit -m "Despligue con archivos angular"
+
+podemos ver los servidores donde desplegamos que esta asignaddo con el comando
+git remote -v
+ejemplo
+heroku  https://git.heroku.com/webservernodesynchron.git (fetch)
+heroku  https://git.heroku.com/webservernodesynchron.git (push)
+
+subimos los cambios con 
+git push heroku master
+
+comprobamos que este bien desplegado ...ejemplo https://webservernodesynchron.herokuapp.com/
+
+
+en esta seccion ya tenemos un restapi de base o modelo para tener en el repositorio como plantilla de la que comenzar un proyecto.
+
+creamos el archivo .gitignore y en el excluimos node_modules/ y todo archivo que no querramos que suba al repositorio
+PS C:\synchro\cursos\udemy\node js\seccion8RestServer> git init
+PS C:\synchro\cursos\udemy\node js\seccion8RestServer> git add .
+PS C:\synchro\cursos\udemy\node js\seccion8RestServer> git commit -m "RestServe modelo base"
+si por algun motivo modifico algo y quedo mal para volvera siguiente comando para recupararlo
+PS C:\synchro\cursos\udemy\node js\seccion8RestServer> git checkout -- .
+importante investiagar si tenemos un visual estudio code alguna interfaz para manejar el git sin que sea por comandos
+creamos un repositorio en github
+luego copiamos a la consola las lienas debajo de …or push an existing repository from the command line... un ejemplo abajao
+git remote add origin https://github.com/weglineduardo/restserverbase.git
+git branch -M main
+git push -u origin main
+
+si hacemos cambio los agregamos al git local con 
+git add .
+luego le hacemos un commit local con
+git commit -m "el comentario o titulo"
+luego lo subimos al repositorio con esto sera en la rama en la que estemos parados
+git push
+podemos agregar un release tag a la rama local como punto de partida de una version del proyecto
+git tag -a v1.0.0 -m "comentario de la version"
+lugo subimos el tag
+git push --tags
+
+capitulo 109 importante para tener versiones descargables desde el github
+
+capitulo 110 subri a heroku el proyecto restserver + webserver
+creamos nuevo proyecto en heroku
+
+lugo en la consola
+Commit your code to the repository and deploy it to Heroku using Git.
+
+heroku git:remote -a restserver-node-base
+
+para ver la rama en la que estamos hacemos
+git branch
+
+luego hacemos un 
+git push heroku nombrerama
+
+luego tenemos en la terminal la url que desplegamos en heroku
+https://restserver-node-base.herokuapp.com
+
+
+
+capitulo 111 uso de postman ambientes de produccion y desarrollo ... importante
+
+los middlewares son funciones que se ejecutan antes de llamar un controlador o seguir con la ejecucion de peticiones http
+
+express-validator es una libreria muy potente para validadcion de datos tipo correo, string, tipo de datos etc
+
+capitulo 129 validaciones de peticiones http
+capitulo 130 paginacion de un get
+
+
+subir a heroku todo lo nuevo hecho hasta aqui que no se publico
+
+git add .
+git commit -m "Usuarios CRUD finalizado - 20042022"
+git branch
+git push heroku main //main es el nombre de la rama que podrias ser mejor que se llamara master
+
+el archvio .env tenemos que eliminarlo de heroku y establecer la
+variable de entorno de la conexcion a base de datos directamente en el config de heroku
+se hace asi
+agregamos .env al gitignore para que no suba a git y a heroku
+por consola hacemos
+git rm .env --cached
+git add .
+git commit -m "removemos .env del repositorio"
+bajamos la aplicacion por consola con control + c
+vemos las variables de entorno con
+heroku config
+
+podemos crar variables de entorno con 
+
+heroku config:set nombrevariable="valorvariable"
+heroku config:set SECRETORPRIVATEKEY="mundial2022"
+
+para borrarla hacemos 
+
+heroku config:unset nombrevariable
+heroku config:unset MONGODB_CNN
+creamos la variable de conexion a db con
+heroku config:set MONGODB_CNN="mongodb+srv://usuarioCafe:74Np8GvH7XqezOMQ@clustercafe.gijdn.mongodb.net/usuarioCafe"
+
+
+para ver los log de heroku en nuestra consola
+vemos los 100 ultimos
+
+heroku logs -n 100    
+
+vemos los ultimos 50 en vivo
+heroku logs -n 50 --tail
+
+
+heroku git:remote -a restserver-node-base-master
+
+
+restserver-curso-fher.herokuapp.com
+
+api google logueo outh
+
+624402776145-lbr9d4bakd04jr17fs3d72612nlglv5b.apps.googleusercontent.com
+GOOGLE_CLIENT_ID=624402776145-lbr9d4bakd04jr17fs3d72612nlglv5b.apps.googleusercontent.com
+
+
+para auntenticarse con gmal
+debemos crear credenciales y una app en 
+
+https://console.cloud.google.com/home/dashboard?project=node-restserver-348015
+
+https://console.cloud.google.com/apis/credentials?project=node-restserver-348015
+
+https://console.cloud.google.com/apis/dashboard?project=node-restserver-348015
+
+https://developers.google.com/identity/gsi/web/guides/verify-google-id-token
+
+podemos ver las librerias que estan vulnerables con
+
+npm audit
+
+
+instalar por consola la libreria
+
+npm install google-auth-library --save
+
+heroku config:set GOOGLE_CLIENT_ID="624402776145-lbr9d4bakd04jr17fs3d72612nlglv5b.apps.googleusercontent.com"
+heroku config:set GOOGLE_SECRET_I="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"
+
+git hacer una rama desde una existente
+verificar en que rama estamos por ejemplo 
+git checkout master
+Already on 'master'
+ya sabiendo que estamos en la rama correcta hacemos
+git branch nombreramanueva
+luego nos situamos en la rama nueva
+
+git checkout nombreramanueva
+Switched to branch nombreramanueva
+
+
+  try {
+
+    
+  } catch (error) {
+    handleHttpError(
+      res, true, error, 500, "Hable con el administrador");
+    return;
+  }
+
+
+socket en geroku
+heroku git:remote -a socket-app-synchro
+
+
+
+para la seccion 17 instalamos de manera global typescript desde la ventana cdm como administrado
+
+instalamos typescript con
+npm i -g typescript
+
+luego iniciamos el archivo de configuracion de ts con
+tsc --init
+
+le quitamos las // en el archivo  tsconfig.jon a la lineas
+
+"outDir": "./dist",    
+"moduleResolution": "node", 
+
+
+luego hacemos 
+tsc
+me falla ver que hacer
+
+
+instalamos 
+npm i tslint --save--dev
+tsc
+
+npm i --save-dev @types/express
+

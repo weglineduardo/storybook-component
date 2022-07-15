@@ -1,0 +1,786 @@
+
+instalar 
+
+https://gist.github.com/Klerith/4a4abfd88a88b2d1f16efd95fea41362
+
+
+Instalaciones recomendadas - Curso de React
+Instalaciones Necesarias
+Google Chrome
+
+React Developer Tools
+
+Redux Devtools
+
+Visual Studio Code
+
+Postman
+
+Mongo Compass
+
+Git
+
+Node
+
+Extensiones de VSCode
+Activitus Bar
+
+Configuración del Bracket Pair Colorizer 2
+Bracket Pair Colorizer 2
+
+"bracket-pair-colorizer-2.colors": [
+    "#fafafa",
+    "#9F51B6",
+    "#F7C244",
+    "#F07850",
+    "#9CDD29",
+    "#C497D4"
+],
+
+buscar JSON: Schemas
+Asocia esquemas a archivos JSON en el proyecto actual.
+ para editar el json y agregar 
+
+"bracket-pair-colorizer-2.colors": [
+    "#fafafa",
+    "#9F51B6",
+    "#F7C244",
+    "#F07850",
+    "#9CDD29",
+    "#C497D4"
+],
+
+
+
+
+
+Nota sobre JavaScript
+Terminamos la sección de reforzamiento de JavaScript
+Pero recuerden que esto es para entrar en calor y que lo temas principales de JavaScript que necesito que conozcan estén cubiertos, pero les recomiendo que cualquier duda adicional sobre el lenguaje, sobre métodos y demás, la consulten aquí
+
+https://developer.mozilla.org/es/
+
+Como ya les había mencionado, considero esa página la mejor en cuanto a documentación sobre JavaScript.
+
+También si sienten que necesitan más sobre JavaScript en video, mi curso de JavaScript Moderno es el indicado para eso.
+
+En fin!, es momento de empezar con React!
+
+
+api.giphy.com/v1/gifs/search?api_key=R1v7U6cFwpRbOSO6nX93a9RlVVNAb4Ro
+
+
+estilos para animaciones 
+https://animate.style/
+
+
+
+para crear un servidor local y desplegar en localhost usamos en una consola como administrador
+
+npm install --global http-server
+
+url
+https://www.npmjs.com/package/http-server
+
+
+corremos npm run build
+esto genera la carpeta para correr localmento y tambien para publicar en un servidor
+
+en consola hacemos cambiamos al directorio build
+ 
+cd build
+
+luego 
+http-server -o
+
+con eso se habre en el navegador
+
+ahora iniciamos la configuracion del git para esta app
+
+git config --global user.name "Weglin Eduardo"
+enter
+git config --global user.email "weglineduardo@hotmail.com"
+enter
+luego
+git init
+git add .
+git commit -m "comentario"
+
+para publicar en un servidor de git tenemos que renombrar la carpeta build por docs
+en otros servidores para deplegar habria que ver como es este tema
+
+luego de renombrar hacemos otra vez
+git add .
+git commit -m "comentario"
+
+ahora creamos un nuevo repositorio en la pagina de github
+copiamos el comando que nos da luego de crearlo
+
+miramos nuestra rama con 
+git branch
+y segun la rama hacemos
+
+git remote add origin https://github.com/weglineduardo/gif-expert-app.git
+git push -u origin master
+
+ahora tenemos que permitir que esta app se pueda navegar online
+
+vamos a configuracion en la web hithub
+
+buscarmos GitHub Pages
+
+aca elegimos la rama 
+Source
+GitHub Pages is currently disabled. Select a source below to enable GitHub Pages for this repository.
+luego nos da el enlace para verlo online pero tenemos un tema con la direccion
+
+habrimos el archivo docs/index.html 
+y agregar un . a los url estaticas por ejemplo de los js ico u otros
+
+ejemplo 
+
+    <link rel="apple-touch-icon" href="./logo192.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+
+guardar y volver a subir al repositorio
+
+probar la url de github otra vez y darle a actualizar por que puede tarde un poco
+
+quedo alli
+https://weglineduardo.github.io/gif-expert-app/
+
+
+
+para los test primero instalamos siempre con la version de react puntual de
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+por que sino no podemos instalar enzyme que es una libreria que facilita los test
+
+instalamos npm i --save-dev enzyme enzyme-adapter-react-16
+
+configuramos el archivo
+setupTests
+
+
+para hacer test con los hooks tenemos que instalar una libreria para esto por que enzyme no tiene manera de hacerlo
+
+por consola instalarmos
+npm install --save-dev @testing-library/react-hooks
+
+ser rompe por algun motivo esta instalacion de @testing-library/react-hooks
+mejor tomar el proyecto 08 que descargue y hacer un npm install para arranca desde alli la seccion 9
+
+
+
+ojo si revienta en index.js, debe ser asi la importacion de reactdom
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+los hooks nunca pueden estar dentro de una condicional como un if
+
+muy importante para no desbordar la memoria de la app si usamos un useEffect temos que limpiarlos
+
+api de pruebas https://breakingbadapi.com/
+
+https://breakingbadapi.com/
+
+expresion condicional de javascript corta
+
+!!data &&data[0]
+
+seria, si hay data, dame la posicion 0 del arreglo de la data
+
+en una desestructuracion seria
+
+const {propiedad1, propiedad2} =!!data &&data[0]
+console.log (propiedad1)
+
+importante
+useLayoutEffect solo sirve cuando el Dom renderiza todo
+C:\Users\weglineduardo\AppData\Local\Programs\Microsoft VS Code2022
+Microsoft VS Code\resources\app\extensions\javascript\snippets\javascript.json
+
+C:\Users\weglineduardo\AppData\Local\Programs\Microsoft VS Code2022\resources\app\extensions
+
+el hook reducer 
+useReducer es un funcion como todas
+debe ser una funcion pura osea que se resuelva de manera interna. no debe tener efectos secundarios
+no debe tener tareas asincronas
+no debe llamar al localStorage ni al sessionStorage
+siempre devuelve un nuevo estado
+usualmente recibe dos argumentos , el estado unicial y la accion que quiero que se ejecute
+no debe requerir mas de una accion que pueda tener un argumento
+
+la idea de usar el useReducer es tener en un solo lugar todas la acciones que modifique los state para alli controlar todos
+
+useReducer es una alternativa similar a userState pero useReducer es 
+mas mejor cuando tenemos que trabajar con muchas tareas
+
+https://es.reactjs.org/docs/hooks-reference.html#usereducer
+
+
+https://cheatography.com/frankieali4/cheat-sheets/vscode-es7-react-redux-snippets/
+
+
+
+
+para trabajar con rutas en react instalar React Router
+
+npm i 
+
+https://v5.reactrouter.com/web/api/NavLink
+
+seccion 14
+construimos un web con galeria e info
+usamos router y router dom de react
+
+
+para los testing instalar 
+
+npm i --save-dev enzyme
+
+npm install --save-dev @wojtekmaj/enzyme-adapter-react-17
+
+npm install --save-dev enzyme-to-json
+
+
+seccion 20 redux
+npm i -S redux
+npm i -S react-redux
+
+npm install @reduxjs/toolkit
+
+
+crear el store 
+
+export const store = createStore(
+    reducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
+
+sistema para autenticar una app
+
+firebase 
+https://console.firebase.google.com/u/0/project/react-app-journal-4aa48/authentication/providers
+
+crear snippet online
+https://snippet-generator.app/?description=useState&tabtrigger=useState&snippet=%0A++const+initialState%3D%7B%0A++++estado%3A+true%2C%0A++++cuerpo%3A%7B%0A++++++var1%3A+%27valor1%27%2C%0A++++++var2%3A+%27valor2%27%0A++++%7D%0A++%7D%0A++consta+%5Bstate%2C+setState%5D+%3D+useState%28initialState%29%3B%0A&mode=vscode
+
+cuando en una funcion flecha se soloca despues de la fecha () es por que se  va
+a recibir un objeto y no una funcion.. ojo con eso por que me ocurrio que no funcionaban 
+algunos codigos 
+
+libreria para fechas 
+npm install moment --save
+https://momentjs.com/docs/#/displaying/
+
+CLOUDINARY_URL=cloudinary://146871963596576:7Szx55H7K7hJ7Yzxyx155-YHMYQ@weglineduardo
+
+cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
+  { public_id: "olympic_flag" }, 
+  function(error, result) {console.log(result); });
+
+
+
+cuando no encuentre el switch de react router dom 
+
+npm uninstall react-router-dom
+
+npm install react-router-dom@5.2.0
+
+
+mongodb
+
+https://cloud.mongodb.com/v2/625ee26f6ed1845bd29a23cc#clusters
+https://mongoosejs.com/
+
+
+mongodb+srv://calendarUser:Asdfg1978@calendardb.rmo8z.mongodb.net
+
+
+despliegue en heroku backend de calendarapp
+
+git init
+git add .
+git commit -m 'Backed terminado'
+git branch
+git log
+heroku --version
+heroku login
+heroku git:remote -a backed-calendar
+git push heroku master
+git remote -v   para ver todos los repositorios que tenemos 
+heroku logs -n 1000 --tail
+
+
+para que cualquier ip pueda consumir mongodb hay que editar en 
+https://cloud.mongodb.com/v2/62a87fc93a2ecb1433423e8b#security/network/accessList/editAccessListIp?ipAddress=0.0.0.0%2F0&deleteAfterDate=
+
+Atlas only allows client connections to a cluster from entries in the project’s IP Access List. Each entry should either be a single IP address or a CIDR-notated range of addresses. Learn more.
+ADD CURRENT IP ADDRESS
+
+Access List Entry:
+0.0.0.0/0
+Comment:
+Optional comment describing this entry
+
+
+
+https://backed-calendar.herokuapp.com
+
+	
+
+
+despliegue en heroku del front del calendario
+como usaron en el video yarn y no npm los comandos son
+heroku login
+yarn build , para contruir la carpeta dist a despleguar
+las variable de entorn tenemos que crearlas en heroku esto es debido a 
+que usamos la libreria vite para manejar la variables de entorno
+en uno de los proyecto creo la carpeta 23 yo no use vite y logre que funcionara
+los archivos generalado en la carpeta dist los pasamos a la carpeta public de backend
+usando el explorador de archivos
+.
+..
+
+testing 
+Instalación y configuracion de Jest + React Testing Library
+https://gist.github.com/Klerith/b2eafa2a5fb9f09d6d043781be976e06
+
+
+yarn test 
+antes e tensteaba con la libreria ensayn y dejo de ser actualizada por lo que
+para react 18 se usa testing-library 
+
+
+
+resumen react bueno
+https://fernando-herrera.com/presentaciones/react-presentaciones/#94
+
+es util usar useMemo para hacer peticiones http si es que hace falta ante
+un cambio en las variables que se usan en la solicitud. useMemo mantiene en 
+memoria la data de las solicitudes y solo permite hacer una nueva
+solicitud si es que los valores de la peticion cambian. No va a ser util en todos 
+los casos. Es bueno analizar en que puede servir. Usar useMemo puede mejorar la performace 
+en un sistema pesado
+
+useLocation sirve mucho para recuperar los parametros de una search query
+instalar npm i query-string esto se usa con el useLocation
+
+con el context tenemos la capacidad de distribuir o dejar a alcance de toda
+la aplicacion lo que necesitemos, pueden ser funciones, datos u otros es algo asi
+como la injeccion de dependencias de .netcore. Es necesario utilizarlo en el niverl mas alto de la aplicacion
+aunque lo mejor es que en el nivel siguiente al index asi este index queda limpio
+
+react-router-dom nos proporciona useHistory que nos permite tener acceso en los componente
+que creamos y reutilizamos al history donde tenemos la propiedades que podemos utilizar
+para navegar a distintas pages de la aplicacion 
+
+
+cuando se hacen los test nos podemoa ayudar hacieno console.log en los componentes
+que testeamos para verificar que los test llegen a esos componentes.
+Un ejemplo es para probar un evento onClick
+
+	
+es importante definir proptypes cuando trabajamo/s con typescripts 
+https://reactjs.org/docs/typechecking-with-proptypes.html
+
+animaciones https://greensock.com/
+npm install ./gsap-bonus.tgz
+
+useReducer se aconseja al userState por que maneja los state cuando estos 
+son mas complejos
+
+crear app react typescript
+npx create-react-app react-app --template typescript
+
+sobre git
+para reconstruir como esta el repositorio usamos 
+git checkout --.
+
+podemos clonar con git en la ventana de comandos con
+git clone urlcompleta
+
+mi repositorio de esta seccion 4
+https://github.com/weglineduardo/react-dev-app-typescripts
+ojo que tengo algunas ramas ahi
+
+crear rama con la terminal
+git checkout -b nombre-rama
+luego agregamos a esa rama los cambio y luego le damos el commit
+git add .
+git commit -m 'comentario'
+
+si algo quedo mal podemos volver a este punto con 
+git checkout --.
+
+para cambiar a otra ramas
+git branch para ver las rutas
+git checkout nombredelarama
+y para asegurarnos la miramos nuevamente con  
+git branch
+
+para subir la nueva rama a git hacemos
+git push
+nos mostrara que no hacemos seguimiento de la rama en el repositorio y nos
+da el comando para hacerlo por ejemplo
+git push --set-upstream origin lazyload-rrd-v6
+
+cuando hacemos una nueva rama de git con la ventana de comando la hace 
+a parti del ultimo commit
+
+te puede hacer comentarios del codigo asi
+
+ {/* desestructuramos props de ruotes*/}
+ 
+ 
+Operador OR lógico: ||
+
+podemos ver por consola las ramas remotas de repositorio con 
+git remote -v
+
+y asi saber cual es la url al que tenemso que hacerle un push
+
+si hacemos git push y la rama local no esta en el reposiorio nos da un error la
+consolo y solo tenemos que compiar toda la linea que nos da y ejecutarla
+ejemplo 
+$ git push
+fatal: The current branch lazyload-nested has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin lazyload-nested
+
+
+weglineduardo@LAPTOP-BMMSDG8E MINGW64 /c/synchro/cursos/udemy/react/react typescript/router dom v5/react-adv-rrd-v5 (lazyload-nested)
+$ git push --set-upstream origin lazyload-nested
+
+importante para la seccion 9 donde contruimos un componente que subimos a npm 
+para reutilizar como libreria, luego de hacer el yarn build tenemso que bajar 
+visual studio code y volver a levantarlo para que cargue correcto todo el trabajo
+realizado con el yarn build, en los videos esta en el paso 3 y 4
+
+para hacer los test en este componente el comando es yarn test:watch 
+esto permite que cada vez que cambiamos codigo se ejecuta el test
+
+probablemente tenemos que instalar  yarn add -D identity-obj-proxy
+ cuando usemos css por modulos en los componente , esto es para cuando hagamos
+ los test
+ 
+ para hacer un tag en git por consola se hace
+ Nos paramos en la rama con git checkout nombre rama
+ hacemos git add .
+ hacemos el commit 
+ git commit -m 'comentario o descripcion'
+ ahora el tag por ejemplo
+ git tag -a v0.0.1 -m 'Version 0.0.1 lista'
+ esto seria
+ git tag -a anotacion -m 'comentario'
+ ahora un git push --tags para subir los tags a el repositorio
+ ahora hacemos un
+ git remote -v para ver la ramas en el git
+ luego ir al git y entrar al tag y crear una release, no olvidar seleccionar en los
+ combos a cual tag le estamos asignando el release
+ 
+ ahora si podemos publicar en NPM con
+yarn publisch o npm publish
+ es importante siempre ver el repositorio por si falla algo. no confiar es importante
+ 
+seccion 10
+
+
+pude que una rama nueva no se deje enviar al repositorio de git y el error sea
+el siguiente
+
+To https://github.com/weglineduardo/react-adv-rrd-v5.git
+ ! [rejected]        forms -> forms (non-fast-forward)
+error: failed to push some refs to 'https://github.com/weglineduardo/react-adv-rrd-v5.git'
+
+para solucionarlo hacer ejemplo
+git pull https://github.com/weglineduardo/react-adv-rrd-v5.git
+
+luego un git push
+
+
+seccion 12
+history book
+esto es bajo react con typescript
+crear la app
+instalamos 
+yarn install
+
+ahora tenemos que quitar de la app las 
+referencias a react-scripts con el comando 
+
+yarn remove react-scripts
+
+ahora instalar  
+# Add Storybook:
+npx storybook init
+
+ahora modificamos el archivo 
+package.json
+
+reempalzamos estas lineas
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+ 
+ por estas lineas
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+ 
+
+
+borramos el contenido de index.tsx
+a ese index le exportamos para permitir que compile la app
+
+import { Button } from "./stories/Button";
+
+Button
+
+ahora corremos
+yarn storybook
+si va todo bien abre chrome con la interfaz de storybook
+
+
+si por algun motivo esta roto el css hacer
+yarn add -D @storybook/addon-postcss postcss css-loader
+
+y agregar en el archivo main.js los siguiente
+
+module.exports = {
+  "stories": [
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions"
+  ],
+  "framework": "@storybook/react"
+}
+preparamos para generar una version para desplegar
+instalamos 
+npm i http-server
+
+generamos una version para desplegar con
+yarn build
+
+luego hacemos un cd a la carpeta storybook-static 
+seria nombredelproyecto-static
+estando en esa carpeta hacemos
+http-server -o
+con esto se levanta la version a desplegar 
+probarla por la dudas en el navegador
+
+ahora esta lista para subir a un hosting
+en https://www.netlify.com/ podemos subirlo para pruebas 
+aqui https://app.netlify.com/drop subimos la carpeta del despliegue y 
+nos crea todo, en este caso quedo en 
+https://sage-bublanina-88db29.netlify.app/?path=/story/example-introduction--page
+incluso en https://www.netlify.com/  podemos exportar del github proyectos y deplegarlos alli
+
+tambien lo podemos desplegar en github pages util para los depliegues automaticos
+
+ahora agregarmos al .gitignore la carpeta 
+# production
+/build
+/storybook-static
+
+ya que estas no son necesarias cuando trabajamos con depliegues automaticoas
+ahora renombramos la carpeta /storybook-static con el nombre de 'docs'
+ya que github usa esta para levantar un sitio en github pages
+
+subir a git el proyecto
+hacer publico el proyecto en setting por que sino no deja usar pages
+luego elegir la rama y la carpeta docs y guarda. con esto esta listo
+
+podemos usar https://www.chromatic.com/ para hacer un seguimiento del historico de 
+cambios en nuestros componentes
+nos conectamos usando la cuenta de github y elegimos el repositorio del proyecto
+sobre el cual usar chromatic y seguimos los pasos de instalacion. ojo
+que sobre el final en la ventana de comando nos pide una confirmaicon a mano 
+de instalar el script y le tenemos que dar y
+? No 'chromatic' script found in your package.json
+Would you like me to add it for you? [y/N]y
+
+ahora hacemos un cambio en el proyecto en visual studio 
+y corremos yarn start
+luego en otra terminar corremos yarn chromatic con esto nos impacta el cambio
+en el sitio de chromatic en el proyecto creado donde veremos los builds que se
+crean por cada cambio
+en cada builds podemos compara unos con otros y en cada elemento hacer comentarios
+estado en cada build podemos aceptarlo y pasar a ser como un master de ese componente
+esto de chromatic es un plus, no dar mucha importacia
+
+agregar al gitinnore los logs con  *.log
+
+seccion 13
+preparamos el package.json para desplegar en npm el componente
+
+  "name": "nombre univoco del componet",
+  "version": "0.0.2",//version a publicar
+  "private": false, // es necesario false para publicar en npm
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/index.d.ts",//directorio de definicio de types
+  "main": "dist/index.js",
+  "homepage": "https://weglineduardo.github.io/",
+  "repository": {
+    "url": "https://github.com/weglineduardo/storybook-component.git",
+    "type": "git"
+  },
+  "release": {
+    "branches": [
+      "main" //indica el nombre de la rama a publicar
+    ]
+  },
+  "files": [ //indicamos carpeta de donde compilara
+    "dist",
+    "src"
+  ],
+cambiar a "build": "TODO implementar",
+
+
+
+ejemplo del respliegue hecho
+
+ "name": "ryd-my-storybook-components",
+  "version": "0.0.2",
+  "private": false,
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "homepage": "https://weglineduardo.github.io/",
+  "repository": {
+    "url": "https://github.com/weglineduardo/storybook-component.git",
+    "type": "git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies" etc etc
+
+  instalar de manera global typescript 
+  npm i -g typescript
+  
+
+ahora modificamos el archivo tsconfig.json
+
+asi queda, agregar lo que falta y modificar lo que se este distinto
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "declaration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
+
+agregamos en el archivo src/index.tsx la exportaciones que queremos dejar
+disponibles en el paquete npm
+
+es un ejemplo aqui abajo
+export { MyLabel } from "./components/MyLabel";
+export { Header } from "./stories/Header";
+export { Page } from "./stories/Page";
+export { Button } from "./stories/Button";
+
+
+ahora generamos la transpilacion  con el comando 
+
+tsc
+
+si da errores corregirlos, paso en este caso que habia que exportar la interfaces,
+se corrigio buscando interface y poner adenalte export  y listo
+volver a correr
+tsc
+luego borrar la carpeta dist  y volver a correr asi no aseguramos que 
+no haya quedado basura
+tsc
+
+ahora es importante mover a mano los archivos .css y los que son imagenes
+
+asi que se corrige asi
+instalamos estos dos paquete
+npm i copyfiles
+npm i rimraf
+
+agregamos en el package.json codigo para automatizar la limpieza de archivo
+del la carpeta dist y la transpilacion 
+
+agregamos esta linea
+"clean": "rimraf dist/"
+y modificamos esta con 
+"build": "yarn clean && tsc",
+quedaria algo asi
+
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "yarn clean && tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=42b4822f19f3",
+    "clean": "rimraf dist/"
+  },
+  
+ahora si corremo yarn buids se ejecuta la limpieza y la transpilacion
+generando la carpeta dist limpia y lista para publicar
+
+
+el paquete copyfiles perimite compiar archivos entre directorios ejemplo
+copia de src todos los .css a la carpta dist/
+copyfiles -u 1 src/**/*.css dist/
+
+ahora queda asi
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "yarn clean && tsc && yarn copy-files",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=42b4822f19f3",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
+  },
+
+ahora agregamos las peerDependencies que son la dependencias que no 
+agregamos por defecto en el proyecto pero que son necesarias.
+
+  "peerDependencies": {
+    "react": ">= 17.0.0",
+    "typescript": ">= 4.0.0"
+  },
+  
+  
+

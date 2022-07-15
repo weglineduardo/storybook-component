@@ -1,0 +1,40 @@
+const { request, response } = require("express");
+
+const usuariosGet = (req = request, res = response) => {
+  
+  // aca usamos req.query para obtener los parametros 
+  //opcionales en una url por ejemplo 
+  //.../usuarios?nombre=elnombre&apellido=elapellido&nacion=lanacion
+  const {nombre, apellido ='No se recibio', nacion, page=1, limit=10} = req.query; 
+  
+  res.json({
+    msg: "Esto es un get por controllers",
+    body,
+    nombre,
+    apellido,
+    page
+  });
+};
+
+const usuariosPut = (req, res = response) => {
+  const {id} = req.params;
+  res.json({
+    msg: "Esto es un Put por controllers",
+    id,
+  });
+};
+
+const usuariosPost = (req, res = response) => {
+  res.json({ msg: "Esto es un Post por controllers" });
+};
+
+const usuariosDelete = (req, res = response) => {
+  res.json({ msg: "Esto es un Delete por controllers" });
+};
+
+module.exports = {
+  usuariosGet,
+  usuariosPost,
+  usuariosPut,
+  usuariosDelete,
+};
