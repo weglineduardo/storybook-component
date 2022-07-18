@@ -50,3 +50,5 @@ export const Button = ({
     </button>
   );
 };
+//para aumentar la compatibilidad el paquete en npm hacemos exportacion por defecto
+export default Button;

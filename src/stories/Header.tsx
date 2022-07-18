@@ -69,3 +69,5 @@ export const Header = ({
     </div>
   </header>
 );
+//para aumentar la compatibilidad el paquete en npm hacemos exportacion por defecto
+export default Header;

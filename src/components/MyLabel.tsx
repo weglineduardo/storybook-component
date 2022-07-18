@@ -45,3 +45,5 @@ export const MyLabel = ({
     </span>
   );
 };
+//para aumentar la compatibilidad el paquete en npm hacemos exportacion por defecto
+export default MyLabel;
